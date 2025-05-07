@@ -26,7 +26,7 @@ type Note struct {
 func main() {
 	// Diretórios
 	postsDir := "posts"
-	outputDir := "docs"
+	outputDir := "public"
 	templateFile := "templates/base.html"
 
 	// Ler arquivos Markdown
