@@ -1,52 +1,33 @@
+{{ define "base" }}
 <!DOCTYPE html>
 <html lang="pt-BR" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8">
-  <title>{{.Title}}</title>
+  <title>{{ block "title" . }}{{ .Title }}{{ end }}</title>
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Estilos personalizados -->
   <link href="/css/custom.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
-  <!-- Cabeçalho -->
+<body class="d-flex flex-column min-vh-100 bg-base">
   <nav class="navbar navbar-expand-lg bg-surface0 shadow-sm">
     <div class="container-fluid">
-      <a class="navbar-brand text-lavender" href="#">Meu Site</a>
+      <a class="navbar-brand text-lavender" href="/">Meu Site</a>
     </div>
   </nav>
 
-  <!-- Conteúdo principal -->
-  <main class="container my-4">
-    <h1 class="text-lavender">{{.Title}}</h1>
-    <div class="bg-surface1 p-4 rounded shadow">
-      {{.Content}}
-    </div>
-
-    <!-- Navegação entre notas -->
-  <nav class="d-flex justify-content-between mt-4">
-    {{if .Previous}}
-      <a class="btn btn-secondary" href="{{.Previous.Filename}}">&larr; {{.Previous.Title}}</a>
-    {{else}}
-      <span></span>
-    {{end}}
-    {{if .Next}}
-      <a class="btn btn-secondary" href="{{.Next.Filename}}">{{.Next.Title}} &rarr;</a>
-    {{else}}
-      <span></span>
-    {{end}}
-  </nav>
+  <main class="container my-4 flex-grow-1">
+    {{ block "content" . }}{{ end }}
   </main>
 
-  <!-- Rodapé -->
   <footer class="bg-surface0 text-subtext1 text-center py-3 mt-auto shadow-top">
     <div class="container">
       <p>&copy; 2025 Meu Nome. Todos os direitos reservados.</p>
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+{{ end }}

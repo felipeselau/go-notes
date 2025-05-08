@@ -1,0 +1,12 @@
+{{ define "title" }}Início{{ end }}
+
+{{ define "content" }}
+  <h1 class="text-lavender">Notas</h1>
+  <ul class="list-group">
+    {{ range .Notes }}
+      <li class="list-group-item bg-surface1">
+        <a class="text-lavender" href="{{ .Filename }}">{{ .Title }}</a>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}

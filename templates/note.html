@@ -1,0 +1,21 @@
+{{ define "title" }}{{ .Title }}{{ end }}
+
+{{ define "content" }}
+  <h1 class="text-lavender">{{ .Title }}</h1>
+  <div class="bg-surface1 p-4 rounded shadow">
+    {{ .Content }}
+  </div>
+
+  <nav class="d-flex justify-content-between mt-4">
+    {{ if .Previous }}
+      <a class="btn btn-secondary" href="{{ .Previous.Filename }}">&larr; {{ .Previous.Title }}</a>
+    {{ else }}
+      <span></span>
+    {{ end }}
+    {{ if .Next }}
+      <a class="btn btn-secondary" href="{{ .Next.Filename }}">{{ .Next.Title }} &rarr;</a>
+    {{ else }}
+      <span></span>
+    {{ end }}
+  </nav>
+{{ end }}
