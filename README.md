@@ -24,7 +24,7 @@ Acesse a versão hospedada em: [https://notes.luizfelipedev.com](https://notes.l
 * [Bootstrap 5](https://getbootstrap.com/) para responsividade e estilo
 * [Catppuccin Mocha](https://github.com/catppuccin/catppuccin) para paleta de cores
 * [GitHub Pages](https://pages.github.com/) para hospedagem gratuita
-* [GitHub Actions](https://github.com/features/actions) para CI/CD([warcontent.com][1])
+* [GitHub Actions](https://github.com/features/actions) para CI/CD
 
 ## 🛠️ Como Usar
 
