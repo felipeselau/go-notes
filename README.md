@@ -12,7 +12,7 @@ Acesse a versão hospedada em: [https://notes.luizfelipedev.com](https://notes.l
 ├── public/             # Arquivos HTML gerados
 ├── templates/          # Templates HTML (base, nota, índice)
 ├── css/                # Estilos personalizados (custom.css)
-├── notes/              # Arquivos Markdown (.md)
+├── posts/              # Arquivos Markdown (.md)
 ├── main.go             # Script principal em Go
 ├── deploy.yml          # Workflow do GitHub Actions
 └── README.md           # Este arquivo
@@ -31,11 +31,11 @@ Acesse a versão hospedada em: [https://notes.luizfelipedev.com](https://notes.l
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/luizfelipedev/notes.git
+   git clone https://github.com/felipeselau/go-notes.git
    cd notes
    ```
 
-2. Adicione suas notas em formato Markdown na pasta `notes/`.
+2. Adicione suas notas em formato Markdown na pasta `posts/`.
 
 3. Execute o script principal para gerar as páginas HTML:
 
