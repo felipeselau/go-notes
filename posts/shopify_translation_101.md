@@ -10,6 +10,7 @@ To localize the Rove Lab CA store for Quebec French:
 
 ---
 ## 📚Shopify translation apps summary and comparison 
+
 ### **🌐 Shopify Translate & Adapt (Native App)**
 
 **✅ Best for:** Basic Shopify stores with limited translation needs.
