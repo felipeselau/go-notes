@@ -13,6 +13,7 @@ import (
 	"strings"
 
 	"github.com/yuin/goldmark"
+	"github.com/yuin/goldmark/extension"
 )
 
 type Note struct {
@@ -57,7 +58,13 @@ func main() {
 
 		// Converter Markdown para HTML
 		var buf bytes.Buffer
-		if err := goldmark.Convert(content, &buf); err != nil {
+		md := goldmark.New(
+			goldmark.WithExtensions(
+				extension.Table,
+			),
+		)
+
+		if err := md.Convert(content, &buf); err != nil {
 			log.Printf("Erro ao converter Markdown para HTML: %v", err)
 			continue
 		}
