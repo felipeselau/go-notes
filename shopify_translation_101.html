@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopify CA to CA-FR Translation</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link href="/css/custom.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="d-flex flex-column min-vh-100 bg-base">
+  <nav class="navbar navbar-expand-lg bg-surface0 shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand text-lavender" href="/">Go Notes </a>
+      <div class="d-flex">
+        <a class="nav-link text-lavender" href="https://github.com/felipeselau/go-notes" target="_blank" aria-label="Repositório no GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+  
+
+  <main class="container my-4 flex-grow-1">
+    <p>A static server for my personal notes written in markdown</p>
+    
+  <h1 class="text-lavender">Shopify CA to CA-FR Translation</h1>
+  <div class="bg-surface1 p-4 rounded shadow">
+    <h1>Shopify CA to CA-FR Translation</h1>
+<p><strong>TL;DR – Translating the Rove Lab CA Store to Quebec French</strong></p>
+<p>To localize the Rove Lab CA store for Quebec French:</p>
+<ul>
+<li>ensure the theme is internationalization-ready (t filters, locales support).</li>
+<li>Shopify’s <strong>Translate &amp; Adapt</strong> app should be used for translating core content like products, collections, pages, and SEO metadata. It’s built-in, efficient, and supports both auto and manual translation.</li>
+<li>For dynamic content from third-party apps, image-based sections, or advanced workflows, apps like <strong><a href="https://apps.shopify.com/weglot?utm_source=chatgpt.com">Weglot</a></strong>, <strong><a href="https://apps.shopify.com/langify?st_source=autocomplete&amp;surface_detail=autocomplete_apps">Langify</a></strong>, or <strong><a href="https://apps.shopify.com/transcy-multiple-languages?st_source=autocomplete&amp;surface_detail=autocomplete_apps">Transcy</a></strong> are recommended.</li>
+<li>A <strong>Shopify developer</strong> is required to adapt custom theme components, structure multilingual metafields, and handle any content not covered natively.</li>
+</ul>
+<hr>
+<h2>📚Shopify translation apps summary and comparison</h2>
+<h3><strong>🌐 Shopify Translate &amp; Adapt (Native App)</strong></h3>
+<p><strong>✅ Best for:</strong> Basic Shopify stores with limited translation needs.
+<strong>Pros:</strong></p>
+<ul>
+<li>Completely <strong>free</strong>, integrated directly in Shopify admin.</li>
+<li>Enables manual and automatic translation (via Google Translate) for up to <strong>two languages</strong> free  .</li>
+<li>Supports <strong>multilingual SEO</strong> with translated slugs, meta tags, and hreflang in subfolders or subdomains  .
+<strong>Cons:</strong></li>
+<li>Auto-translation capped at two languages; additional languages require manual input  .</li>
+<li>Lacks support for translating many content types: <strong>metafields</strong>, collection filters, manual payment instructions, tags, non-Shopify theme injected content  .</li>
+<li>Limited bulk import/export; no CSV workflow automation.</li>
+<li>Not compatible with all third-party apps unless they use Shopify Translations API  .</li>
+</ul>
+<hr>
+<h3><strong>💡 Weglot</strong></h3>
+<p><strong>✅ Best for:</strong> Stores with dynamic content, third‑party app text, or multi-language SEO needs.
+<strong>Pros:</strong></p>
+<ul>
+<li><strong>Automatic detection and translation</strong> of most store content—including checkout, email notifications, and third-party app content—right after setup (~5 minutes)  .</li>
+<li>Strong <strong>multilingual SEO structure</strong>: translated URLs, subdomains/subfolders, meta tags, hreflang tags, and auto redirections for returning visitors  .</li>
+<li>Central translation dashboard where merchants or translators can edit or order professional translations  .
+<strong>Cons:</strong></li>
+<li>Free plan limited to ~2,000 words and one language; paid plans can be expensive for high‑volume stores  .</li>
+<li>Minor performance slowdown on some installations  .</li>
+<li>Not fully compatible with Shopify Markets (native)  .</li>
+</ul>
+<hr>
+<h3><strong>✍️ Langify</strong></h3>
+<p><strong>✅ Best for:</strong> Stores needing precise manual control and SEO customization.
+<strong>Pros:</strong></p>
+<ul>
+<li>Focuses on <strong>manual translation control</strong>, allowing imports/exports via CSV or JSON and creating custom glossaries  .</li>
+<li>Built-in <strong>SEO support</strong> with translated URLs, metadata, and language switchers  .</li>
+<li>Flat monthly rate (~$17.50/month) regardless of word count  .
+<strong>Cons:</strong></li>
+<li>No free tier (only a 7‑day trial).</li>
+<li>No automatic translation—requires manual input or external machine translation export/import.</li>
+<li>May require more dev effort for highly customized themes, especially AJAX-loaded elements  .</li>
+</ul>
+<hr>
+<h3><strong>🖼️ Transcy</strong></h3>
+<p><strong>✅ Best for:</strong> Visual-heavy stores, large catalogs, or stores needing currency conversion.
+<strong>Pros:</strong></p>
+<ul>
+<li>Offers <strong>AI-powered translation</strong>, DeepL integration, manual editing, plus <strong>image and media translation</strong> (alt text, text overlays) and real‑time currency conversion  .</li>
+<li>Supports <strong>unlimited word translation</strong> with broad integration across themes and apps  .</li>
+<li>Cost-effective pricing starting around $19.99/month, free tier trial available  .
+<strong>Cons:</strong></li>
+<li>Can slow down load speed on complex stores; some reports of PageSpeed drops  .</li>
+<li>Slightly less mature SEO setup compared to Weglot or Langify; handles custom translations well but may require configuration.</li>
+</ul>
+<hr>
+<h2><strong>📊 Summary Table</strong></h2>
+<table>
+<thead>
+<tr>
+<th><strong>App</strong></th>
+<th><strong>Auto Translation</strong></th>
+<th><strong>SEO &amp; URL Support</strong></th>
+<th><strong>App / JS Content Support</strong></th>
+<th><strong>Media/Text-in-Image Support</strong></th>
+<th><strong>Manual Control / CSV Export</strong></th>
+<th><strong>Pricing Structure</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Translate &amp; Adapt (Shopify)</td>
+<td>Yes (2 languages)</td>
+<td>Yes (basic SEO, slugs)</td>
+<td>Limited to Shopify features</td>
+<td>❌</td>
+<td>❌</td>
+<td>Free; larger stores manual only</td>
+</tr>
+<tr>
+<td><strong>Weglot</strong></td>
+<td>Yes (high volume)</td>
+<td>Advanced SEO (URL &amp; hreflang)</td>
+<td>✅ Covers most third-party app content</td>
+<td>❌</td>
+<td>✅ (dashboard editor)</td>
+<td>Tiered word-based pricing</td>
+</tr>
+<tr>
+<td><strong>Langify</strong></td>
+<td>No</td>
+<td>Strong SEO &amp; URL control</td>
+<td>Partial (depends on theme)</td>
+<td>❌</td>
+<td>✅ (CSV import/export)</td>
+<td>Flat monthly (~$17.50)</td>
+</tr>
+<tr>
+<td><strong>Transcy</strong></td>
+<td>Yes (AI + DeepL)</td>
+<td>Good, some custom setup</td>
+<td>Broad support</td>
+<td>✅</td>
+<td>✅ (manual + AI tools)</td>
+<td>Flat pricing (starting ~$19.99/mo)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2><strong>⚖️ Recommendations</strong></h2>
+<ul>
+<li>Use <strong>Translate &amp; Adapt</strong> for <strong>core Shopify-native content</strong> (products, pages, menus, basic SEO) in small to medium stores—especially if you’re translating into just 1 or 2 languages.</li>
+<li>Employ <strong>Weglot</strong> for stores with heavy dynamic content, checkout translations, email notifications, or third-party app text—especially when SEO-friendly URLs and automatic redirection are priorities.</li>
+<li>Choose <strong>Langify</strong> when you need <strong>full control over translations and SEO</strong> with manual workflows, CSV-based editing, and strict linguistic precision (ideal for Quebec French).</li>
+<li>Opt for <strong>Transcy</strong> in situations where you need <strong>image localization</strong>, currency conversion, and support for very large catalogs with flexible translation sources.</li>
+</ul>
+<h2><strong>🛒 Summary: What’s Needed to Translate a Shopify E-commerce Store</strong></h2>
+<h3><strong>✅ 1. Basic Translation Structure in Shopify</strong></h3>
+<p>To make a Shopify store multilingual, you need to:</p>
+<ul>
+<li>
+<p>Enable additional languages in the <strong>Admin</strong> (Settings &gt; Languages);</p>
+</li>
+<li>
+<p>Use a compatible translation app (e.g., <strong>Translate &amp; Adapt</strong>);</p>
+</li>
+<li>
+<p>Ensure your theme is <strong>internationalization-ready</strong> (i18n-ready);</p>
+</li>
+<li>
+<p>Translate the following:</p>
+<ul>
+<li>
+<p><strong>Static content</strong>: titles, descriptions, page text, menus, footers;</p>
+</li>
+<li>
+<p><strong>Dynamic content</strong>: products, collections, checkout, blogs, email notifications;</p>
+</li>
+<li>
+<p><strong>Metafields and custom sections</strong>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3><strong>🌍 2. What Translate &amp; Adapt Covers (Shopify’s Native App)</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Coverage</strong></th>
+<th><strong>Details</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅ Products and collections</td>
+<td>Name, description, slug, SEO metadata</td>
+</tr>
+<tr>
+<td>✅ Pages, menus, blogs</td>
+<td>Titles, body text, descriptions</td>
+</tr>
+<tr>
+<td>✅ Checkout (Shopify Plus)</td>
+<td>Translation via Shopify files, not directly through the app</td>
+</tr>
+<tr>
+<td>✅ Email notifications</td>
+<td>Can be translated manually in the admin</td>
+</tr>
+<tr>
+<td>✅ Manual and automatic translation</td>
+<td>Google Translate with manual post-editing in the editor</td>
+</tr>
+<tr>
+<td>✅ Multilingual SEO</td>
+<td>Slugs and meta tags per language</td>
+</tr>
+<tr>
+<td>❌ External app content</td>
+<td>Not all apps expose content to Translate &amp; Adapt</td>
+</tr>
+<tr>
+<td>❌ Image or media translation</td>
+<td>Does not translate media with embedded text (e.g., banners)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Limitation</strong>: Translate &amp; Adapt does <strong>not</strong> handle content injected by third-party apps, JavaScript-rendered text, or components not using t tags/locales files.</p>
+</blockquote>
+<hr>
+<h3><strong>🧩 3. Where Third-Party Apps Are Needed</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Use Case</strong></th>
+<th><strong>Recommended Apps</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Translating content from external apps</td>
+<td><strong>Weglot</strong>, <strong>Langify</strong>, <strong>Transcy</strong></td>
+</tr>
+<tr>
+<td>Automatic translation + manual review</td>
+<td><strong>Weglot</strong>, <strong>Translation Lab</strong></td>
+</tr>
+<tr>
+<td>Media/file translation support</td>
+<td><strong>LangShop</strong>, <strong>Transcy</strong></td>
+</tr>
+<tr>
+<td>Advanced management and manual workflows</td>
+<td><strong>Langify</strong> (CSV import/export support)</td>
+</tr>
+<tr>
+<td>Logic-based content (e.g., dynamic banners)</td>
+<td>Apps with <em>in-context editing</em> like Weglot</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3><strong>👨‍💻 4. When a Shopify Developer is Needed</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Scenario</strong></th>
+<th><strong>Developer’s Role</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Custom theme without locales support</td>
+<td>Add i18n support in Liquid files using the t filter</td>
+</tr>
+<tr>
+<td>Translating schema-defined input text</td>
+<td>Ensure default + locales values in settings</td>
+</tr>
+<tr>
+<td>Translating logic-based components</td>
+<td>Refactor Liquid to isolate translatable content</td>
+</tr>
+<tr>
+<td>Complex metafields content</td>
+<td>Build multilingual structure to store per-language values</td>
+</tr>
+<tr>
+<td>Multilingual SEO with custom URLs</td>
+<td>Configure handles/URLs dynamically per language</td>
+</tr>
+<tr>
+<td>Integration with apps that hide content</td>
+<td>Build custom solutions using API or injected JS</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3><strong>🧭 Conclusion and Recommendations</strong></h3>
+<table>
+<thead>
+<tr>
+<th><strong>Need Level</strong></th>
+<th><strong>Recommended Solution</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Small/medium store</td>
+<td><strong>Translate &amp; Adapt</strong> + manual review</td>
+</tr>
+<tr>
+<td>Store with dynamic content and third-party apps</td>
+<td><strong>Weglot</strong> or <strong>Langify</strong> for fine control</td>
+</tr>
+<tr>
+<td>Store targeting regional dialects (e.g. Quebec French)</td>
+<td><strong>Langify</strong> + native human review</td>
+</tr>
+<tr>
+<td>Custom theme</td>
+<td>Direct involvement of a <strong>Shopify developer</strong></td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+  </div>
+
+  <nav class="d-flex justify-content-between mt-4">
+    
+      <a class="btn btn-secondary" href="nota3.html">&larr; 🔗 Navegação entre Notas</a>
+    
+    
+      <span></span>
+    
+  </nav>
+
+  </main>
+
+  <footer class="bg-surface0 text-subtext1 text-center py-3 mt-auto shadow-top">
+    <div class="container">
+      <p>Made with Love and Golang by <a href="https://github.com/felipeselau">felipeselau</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
