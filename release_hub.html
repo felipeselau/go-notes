@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <title>“Landing pages elegantes para GitHub Releases”.</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link href="/css/custom.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body class="d-flex flex-column min-vh-100 bg-base">
+  <nav class="navbar navbar-expand-lg bg-surface0 shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand text-lavender" href="/">Go Notes </a>
+      <div class="d-flex">
+        <a class="nav-link text-lavender" href="https://github.com/felipeselau/go-notes" target="_blank" aria-label="Repositório no GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+  
+
+  <main class="container my-4 flex-grow-1">
+    <p>A static server for my personal notes written in markdown</p>
+    
+  <h1 class="text-lavender">“Landing pages elegantes para GitHub Releases”.</h1>
+  <div class="bg-surface1 p-4 rounded shadow">
+    <h1>“Landing pages elegantes para GitHub Releases”.</h1>
+<h1><strong>🎯</strong> Proposta de Valor</h1>
+<p>Permitir que qualquer repositório GitHub tenha uma <strong>landing page de downloads</strong>, onde os releases são apresentados de forma organizada, filtrada e estilizada — configurável via YAML no próprio repo.</p>
+<h1><strong>⚙️</strong>  <strong>Como funciona (alto nível)</strong></h1>
+<h3><strong>1. O app é instalado em um repositório GitHub</strong></h3>
+<ul>
+<li>Pode ser via GitHub App ou apenas via workflow + action.</li>
+<li>Ele lê o arquivo .releasehub.yml na raiz.</li>
+</ul>
+<h3><strong>2.</strong> <strong>A LP é gerada automaticamente</strong></h3>
+<ul>
+<li>Está hospedada:
+<ul>
+<li>Via GitHub Pages (ideal)</li>
+<li>Ou via teu servidor / Vercel</li>
+</ul>
+</li>
+<li>O app lê a aba <strong>Releases</strong> do GitHub:
+<ul>
+<li>Tags</li>
+<li>Assets (zip, tar.gz, exe, apk, dmg…)</li>
+<li>Changelog</li>
+<li>Data e versão</li>
+</ul>
+</li>
+</ul>
+<h3><strong>3.</strong> <strong>O YAML controla tudo</strong></h3>
+<p>Exemplo:</p>
+<pre><code class="language-yaml">title: &quot;Downloads oficiais&quot;
+description: &quot;Versões estáveis e nightly builds&quot;
+theme: &quot;dark&quot;
+
+tabs:
+  - id: stable
+    label: &quot;Stable&quot;
+    filter:
+      prerelease: false
+
+  - id: nightly
+    label: &quot;Nightly&quot;
+    filter:
+      prerelease: true
+
+  - id: custom
+    label: &quot;Custom&quot;
+    include:
+      - &quot;v1.2.0&quot;
+      - &quot;2024-09-beta-*&quot;
+    extensions:
+      - &quot;.zip&quot;
+      - &quot;.exe&quot;
+
+global:
+  hide_assets:
+    - &quot;*.sig&quot;
+  hide_releases:
+    - &quot;v0.*&quot;
+</code></pre>
+<hr>
+<h1><strong>🧩</strong>  <strong>Funcionalidades chave</strong> <strong>(com detalhamento técnico)</strong></h1>
+<h2><strong>1. Filtragem avançada de releases</strong></h2>
+<ul>
+<li>por regex</li>
+<li>por extensão</li>
+<li>por pré-lançamento / rascunho</li>
+<li>por nome do asset</li>
+<li>ocultar versões antigas</li>
+<li>mostrar só releases LTS</li>
+<li>ordenar por data/semver</li>
+</ul>
+<h2><strong>2. Até 3 tabs</strong></h2>
+<p>Cada tab funciona como uma LP independente, mas <strong>herda todas as configs do global</strong>:</p>
+<ul>
+<li>Tab 1: Stable</li>
+<li>Tab 2: Beta</li>
+<li>Tab 3: Custom (qualquer regra do YAML)</li>
+</ul>
+<p>Tabs aparecem como “abas” na UI</p>
+<h2><strong>3. LP central que agrega vários repositórios</strong></h2>
+<h3>Repo central →  .releasehub.yml :</h3>
+<pre><code>aggregate:
+  - owner/project-a
+  - owner/project-b
+  - owner/project-c
+</code></pre>
+<p>Então gera uma LP assim:</p>
+<pre><code>/ → Mostra todos os projetos agregados
+/project-a → LP do projeto A
+/project-b → LP do projeto B
+</code></pre>
+<p>Perfeito para empresas com vários projetos open-source.</p>
+<hr>
+<h1><strong>🏗</strong> <strong>Arquitetura da Solução</strong></h1>
+<ul>
+<li>GitHub REST API (ou GraphQL)
+Endpoints usados:
+<ul>
+<li>GET /repos/{owner}/{repo}/releases</li>
+<li>GET /repos/{owner}/{repo}/releases/assets</li>
+<li>GET /repos/{owner}/{repo} (metadados)</li>
+</ul>
+</li>
+</ul>
+<h3><strong>✔ Output</strong></h3>
+<ul>
+<li>Build de páginas estáticas (SSG):
+<ul>
+<li>Astro.js (melhor)</li>
+<li>Next.js static export</li>
+<li>Eleventy / Jekyll</li>
+</ul>
+</li>
+<li>Hospedado automaticamente no:
+<ul>
+<li>GitHub Pages</li>
+<li>OU Vercel (melhor experiência)</li>
+</ul>
+</li>
+</ul>
+<h3><strong>✔ GitHub Action</strong></h3>
+<p>Toda vez que:</p>
+<ul>
+<li>lançar release</li>
+<li>modificar .releasehub.yml
+→ Regenera a LP.</li>
+</ul>
+<hr>
+<h1><strong>🔧</strong>  <strong>Instalação no repositório</strong></h1>
+<p>O usuário adiciona:</p>
+<pre><code>.github/workflows/releasehub.yml
+.releasehub.yml
+</code></pre>
+<p>E pronto.</p>
+<hr>
+<h1><strong>🎨</strong> <strong>UI / UX da LP</strong></h1>
+<p>A LP pode ter:</p>
+<ul>
+<li>Nome do projeto</li>
+<li>Descrição</li>
+<li>Tag mais recente destacada</li>
+<li>Download por plataforma</li>
+<li>Changelog expandível</li>
+<li>Badges (stable / prerelease)</li>
+<li>Botões grandes e intuitivos para cada asset</li>
+<li>QR code opcional para downloads mobile</li>
+<li>Analytics opcional</li>
+</ul>
+<p>Exemplo de seção por release:</p>
+<pre><code>Version v1.3.2 — 12 Dec 2025
+---------------------------------
+Windows 64-bit (.exe)
+Linux (.AppImage)
+Mac (.dmg)
+Source Code (.zip)
+Changelog ▶
+</code></pre>
+<hr>
+<h1><strong>🧩</strong>  Funcionalidades extras</h1>
+<h2>1. Short URLs</h2>
+<p>yourapp.com/p/project/release/latest</p>
+<h2><strong>2.</strong>  <strong>Auto-detectar plataforma</strong></h2>
+<p>Quando abrir no Windows → já mostra .exe
+Quando abrir no Android → já mostra .apk</p>
+<h2><strong>3.</strong> <strong>Analytics básicos</strong></h2>
+<ul>
+<li>Downloads por dia</li>
+<li>Sistemas operacionais</li>
+<li>Version ranking</li>
+</ul>
+<h2><strong>4.</strong>  <strong>Proteção opcional</strong></h2>
+<ul>
+<li>Releases privados? → exige token/personal access.</li>
+</ul>
+<hr>
+<h1><strong>🛠</strong>  <strong>Roadmap para implementar</strong></h1>
+<h3><strong>MVP</strong></h3>
+<ol>
+<li>Ler releases via GitHub API</li>
+<li>Interpretar .releasehub.yml</li>
+<li>Gerar LP estática</li>
+<li>Suportar tabs</li>
+<li>Suportar filtros básicos</li>
+</ol>
+<h3><strong>v1</strong></h3>
+<ol start="6">
+<li>Agregador de vários repositórios</li>
+<li>Tema dark/light</li>
+<li>Deploy automático (GitHub Pages)</li>
+</ol>
+<h3><strong>v2</strong></h3>
+<ol start="9">
+<li>Analytics</li>
+<li>Detecção de plataforma</li>
+<li>Short URLs</li>
+<li>Customizações profundas via YAML</li>
+<li>Templates customizáveis por HTML/MDX</li>
+</ol>
+<hr>
+
+  </div>
+
+  <nav class="d-flex justify-content-between mt-4">
+    
+      <span></span>
+    
+    
+      <a class="btn btn-secondary" href="shopify_translation_101.html">Shopify CA to CA-FR Translation &rarr;</a>
+    
+  </nav>
+
+  </main>
+
+  <footer class="bg-surface0 text-subtext1 text-center py-3 mt-auto shadow-top">
+    <div class="container">
+      <p>Made with Love and Golang by <a href="https://github.com/felipeselau">felipeselau</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
